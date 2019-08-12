@@ -18,9 +18,9 @@ struct Codes {
 class codeLangTableViewController: UITableViewController {
     
     var allLang = [
-        Codes(id: 1, title: "JavaScript", text: "This is the best, most popular kind of code.", image: "somefancy code"),
-        Codes(id: 2, title: "Python", text: "SUPER popular coding language.", image: "a python snake?"),
-        Codes(id: 3, title: "Java", text: "Idk to be honest", image: "some kind of coffee?")
+        Codes(id: 1, title: "JavaScript", text: "This is the best, most popular kind of code.", image: "jscript"),
+        Codes(id: 2, title: "Python", text: "SUPER popular coding language.", image: "pythonsnake"),
+        Codes(id: 3, title: "Java", text: "Idk to be honest", image: "jcoffee")
     ]
 
     // MARK: - Table view data source
@@ -39,7 +39,10 @@ class codeLangTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "languageCell", for: indexPath)
 
         cell.textLabel?.text = allLang[indexPath.row].title
-
+        
+        cell.detailTextLabel?.text = allLang[indexPath.row].text
+        
+        cell.imageView?.image = UIImage(named:allLang[indexPath.row].image)
         return cell
     }
     
